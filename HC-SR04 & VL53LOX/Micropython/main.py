@@ -12,17 +12,23 @@
 
 # VL53L0X TOF Sensor with ESP32:
 # https://www.az-delivery.de/en/blogs/azdelivery-blog-fur-arduino-und-raspberry-pi/digitales-theremin-mit-esp32-in-micropython
+# https://www.electronicwings.com/esp32/vl53l0x-sensor-interfacing-with-esp32
 # Python library for VL53L0X:
 # https://www.grzesina.de/az/theremin/VL53L0X.py
 # A def ping(self)-function has been added to vl53l0x.py
 
 # HC-SR04 Ultrasonic Sensor with ESP32:
 # https://randomnerdtutorials.com/micropython-hc-sr04-ultrasonic-esp32-esp8266/
+# https://esp32io.com/tutorials/esp32-ultrasonic-sensor
 # https://github.com/rsc1975/micropython-hcsr04/tree/master
 # Python library for HCSR-04:
 # https://github.com/rsc1975/micropython-hcsr04/blob/master/hcsr04.py
 
-from machine import Pin, SoftI2C
+# UART duplex serial communication
+# https://docs.micropython.org/en/latest/library/machine.UART.html#machine.UART
+# https://docs.micropython.org/en/latest/esp32/quickref.html#uart-serial-bus
+
+from machine import Pin, SoftI2C, UART
 import ssd1306
 from vl53l0x import VL53L0X
 from hcsr04 import HCSR04
@@ -43,8 +49,34 @@ correction_VL = (-70)
 sensor_HCSR04 = HCSR04(trigger_pin=5, echo_pin=18, echo_timeout_us=10000)
 correction_HC = (0)
 
-print('BootStrapReady')                    # send this message in order to get rid of ESP32 bootstrap messages
+# Create a StartButtonPin object
+# physical Pin G32 => GPIO32 = 32
+StartButton = 32
+StartButtonPin = Pin( StartButton, mode=Pin.IN, pull=Pin.PULL_DOWN)   # pull down resistor enabled
 
+# ------------------------------ code for USART to monitor ---------------------------------
+# Create a UART object for EPS32 with UART2; GPIO17: tx=17, GPIO16: rx=16
+uart = UART(2, 115200)
+uart.write("Wait for 'sendData'\n") # Serial Monitor
+print('MicropythonReady')           # REPL
+oled.text('Press button', 0, 0)
+oled.show()
+
+# Wait for Python-Monitor and the start-message: 'sendData' or StartButton
+while True:
+    if StartButtonPin.value():
+        break
+    
+    if uart.any() > 0:
+        strMsg = uart.read()
+        strMsg = strMsg.decode('utf-8')
+        print(strMsg)               # REPL
+        if 'sendData' in strMsg:
+            break
+        
+print('Data will be send.')          # REPL
+uart.write(b'Data will be send.\n')  # Serial Monitor
+# ------------------------------ end of code for USART to monitor --------------------------
 # ------------------------------ code for oled display -------------------------------------
 def clearLine(_line):                                     # for a 128x64 oled-monochrome-display with 6 rows (0 to 5)
     oled.framebuf.fill_rect(0, 11 * _line, 128, 11, 0)    # width = 128, hight = 11
@@ -57,18 +89,18 @@ oled.text('EBW', 0, 0)
 while True:
     
     distance_VL53L0X = sensor_VL53L0X.ping() + correction_VL   
-    distance_HCSR04= (sensor_HCSR04.distance_mm()) + correction_HC
+    distance_HCSR04  = (sensor_HCSR04.distance_mm()) + correction_HC
     
-    print('VL:' + str(distance_VL53L0X))    
+    print('VL:' + str(distance_VL53L0X))             # REPL    
     print('HC:' + str(distance_HCSR04))
+    uart.write('VL:' + str(distance_VL53L0X) + '\n') # Serial Monitor
+    uart.write('HC:' + str(distance_HCSR04)  + '\n')
     
     clearLine(1)
     clearLine(2)
-    oled.text('VL:' + str(distance_VL53L0X), 0, 11*1)
+    oled.text('VL:' + str(distance_VL53L0X), 0, 11*1) # OLED
     oled.text('HC:' + str(distance_HCSR04),  0, 11*2)
     oled.show()
 
     sleep(.5)
-    
 
-    
