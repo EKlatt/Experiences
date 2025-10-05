@@ -1,0 +1,351 @@
+﻿{
+  "name": "Rotary_2",
+  "description": "",
+  "type": "MEALY",
+  "automaton": {
+    "acceptCache": [],
+    "simulationInput": [
+      "CLKfall",
+      "CLKfall",
+      "DTfall",
+      "CLKrise",
+      "CLKrise",
+      "CLKrise",
+      "DTrise"
+    ],
+    "Alphabet": [
+      "CLKfall",
+      "CLKrise",
+      "DTfall",
+      "DTrise"
+    ],
+    "StackAlphabet": [
+      "0",
+      "count++",
+      "count--",
+      "+1"
+    ],
+    "States": [
+      {
+        "ID": 2,
+        "Name": "CW01",
+        "x": 580,
+        "y": 220,
+        "Final": false,
+        "Radius": 30,
+        "Transitions": [
+          {
+            "Source": 2,
+            "Target": 2,
+            "x": 70,
+            "y": -100,
+            "Labels": [
+              [
+                "CLKfall",
+                "0"
+              ],
+              [
+                "CLKrise",
+                "0"
+              ],
+              [
+                "DTrise",
+                "0"
+              ]
+            ]
+          },
+          {
+            "Source": 2,
+            "Target": 3,
+            "x": 30,
+            "y": 0,
+            "Labels": [
+              [
+                "DTfall",
+                "0"
+              ]
+            ]
+          }
+        ],
+        "Start": false
+      },
+      {
+        "ID": 4,
+        "Name": "CW10",
+        "x": 410,
+        "y": 440,
+        "Final": false,
+        "Radius": 30,
+        "Transitions": [
+          {
+            "Source": 4,
+            "Target": 1,
+            "x": -60,
+            "y": 0,
+            "Labels": [
+              [
+                "DTrise",
+                "count++"
+              ]
+            ]
+          },
+          {
+            "Source": 4,
+            "Target": 4,
+            "x": 50,
+            "y": 70,
+            "Labels": [
+              [
+                "CLKfall",
+                "0"
+              ],
+              [
+                "CLKrise",
+                "0"
+              ],
+              [
+                "DTfall",
+                "0"
+              ]
+            ]
+          }
+        ],
+        "Start": false
+      },
+      {
+        "ID": 1,
+        "Name": "ID11",
+        "x": 370,
+        "y": 130,
+        "Final": false,
+        "Radius": 30,
+        "Transitions": [
+          {
+            "Source": 1,
+            "Target": 2,
+            "x": 0,
+            "y": 20,
+            "Labels": [
+              [
+                "CLKfall",
+                "0"
+              ]
+            ]
+          },
+          {
+            "Source": 1,
+            "Target": 1,
+            "x": 130,
+            "y": -100,
+            "Labels": [
+              [
+                "CLKrise",
+                "0"
+              ],
+              [
+                "DTrise",
+                "0"
+              ]
+            ]
+          },
+          {
+            "Source": 1,
+            "Target": 5,
+            "x": 0,
+            "y": -10,
+            "Labels": [
+              [
+                "DTfall",
+                "0"
+              ]
+            ]
+          }
+        ],
+        "Start": true
+      },
+      {
+        "ID": 3,
+        "Name": "CW00",
+        "x": 570,
+        "y": 390,
+        "Final": false,
+        "Radius": 30,
+        "Transitions": [
+          {
+            "Source": 3,
+            "Target": 4,
+            "x": 10,
+            "y": 20,
+            "Labels": [
+              [
+                "CLKrise",
+                "0"
+              ]
+            ]
+          },
+          {
+            "Source": 3,
+            "Target": 3,
+            "x": 120,
+            "y": 0,
+            "Labels": [
+              [
+                "CLKfall",
+                "0"
+              ],
+              [
+                "DTfall",
+                "0"
+              ],
+              [
+                "DTrise",
+                "0"
+              ]
+            ]
+          }
+        ],
+        "Start": false
+      },
+      {
+        "ID": 5,
+        "Name": "CCW10",
+        "x": 180,
+        "y": 220,
+        "Final": false,
+        "Radius": 30,
+        "Transitions": [
+          {
+            "Source": 5,
+            "Target": 6,
+            "x": -50,
+            "y": 0,
+            "Labels": [
+              [
+                "CLKfall",
+                "0"
+              ]
+            ]
+          },
+          {
+            "Source": 5,
+            "Target": 5,
+            "x": -80,
+            "y": -90,
+            "Labels": [
+              [
+                "CLKrise",
+                "0"
+              ],
+              [
+                "DTfall",
+                "0"
+              ],
+              [
+                "DTrise",
+                "0"
+              ]
+            ]
+          }
+        ],
+        "Start": false
+      },
+      {
+        "ID": 6,
+        "Name": "CCW00",
+        "x": 180,
+        "y": 390,
+        "Final": false,
+        "Radius": 30,
+        "Transitions": [
+          {
+            "Source": 6,
+            "Target": 7,
+            "x": 0,
+            "y": -40,
+            "Labels": [
+              [
+                "DTrise",
+                "0"
+              ]
+            ]
+          },
+          {
+            "Source": 6,
+            "Target": 6,
+            "x": -80,
+            "y": 10,
+            "Labels": [
+              [
+                "CLKfall",
+                "0"
+              ],
+              [
+                "CLKrise",
+                "0"
+              ],
+              [
+                "DTfall",
+                "0"
+              ]
+            ]
+          }
+        ],
+        "Start": false
+      },
+      {
+        "ID": 7,
+        "Name": "CCW01",
+        "x": 340,
+        "y": 440,
+        "Final": false,
+        "Radius": 30,
+        "Transitions": [
+          {
+            "Source": 7,
+            "Target": 1,
+            "x": 50,
+            "y": 0,
+            "Labels": [
+              [
+                "CLKrise",
+                "count--"
+              ]
+            ]
+          },
+          {
+            "Source": 7,
+            "Target": 7,
+            "x": -30,
+            "y": 70,
+            "Labels": [
+              [
+                "CLKfall",
+                "0"
+              ],
+              [
+                "DTfall",
+                "0"
+              ],
+              [
+                "DTrise",
+                "0"
+              ]
+            ]
+          }
+        ],
+        "Start": false
+      }
+    ],
+    "lastInputs": [
+      [
+        "CLKfall",
+        "CLKfall",
+        "DTfall",
+        "CLKrise",
+        "CLKrise",
+        "CLKrise",
+        "DTrise"
+      ]
+    ]
+  }
+}
