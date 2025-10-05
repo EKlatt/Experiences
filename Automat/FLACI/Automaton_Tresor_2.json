@@ -1,0 +1,245 @@
+﻿{
+  "name": "Tresor_2",
+  "description": "",
+  "type": "DEA",
+  "automaton": {
+    "acceptCache": [],
+    "simulationInput": [
+      "0",
+      "0",
+      "0"
+    ],
+    "Alphabet": [
+      "0",
+      "1"
+    ],
+    "StackAlphabet": [
+      "|"
+    ],
+    "States": [
+      {
+        "ID": 1,
+        "Name": "z0",
+        "x": 150,
+        "y": 150,
+        "Final": false,
+        "Radius": 30,
+        "Transitions": [
+          {
+            "Source": 1,
+            "Target": 2,
+            "x": 0,
+            "y": 0,
+            "Labels": [
+              "1"
+            ]
+          },
+          {
+            "Source": 1,
+            "Target": 5,
+            "x": 0,
+            "y": 0,
+            "Labels": [
+              "0"
+            ]
+          }
+        ],
+        "Start": true
+      },
+      {
+        "ID": 2,
+        "Name": "z1",
+        "x": 260,
+        "y": 80,
+        "Final": false,
+        "Radius": 30,
+        "Transitions": [
+          {
+            "Source": 2,
+            "Target": 3,
+            "x": 0,
+            "y": 0,
+            "Labels": [
+              "0",
+              "1"
+            ]
+          }
+        ],
+        "Start": false
+      },
+      {
+        "ID": 3,
+        "Name": "z2",
+        "x": 420,
+        "y": 80,
+        "Final": false,
+        "Radius": 30,
+        "Transitions": [
+          {
+            "Source": 3,
+            "Target": 8,
+            "x": 0,
+            "y": 0,
+            "Labels": [
+              "0",
+              "1"
+            ]
+          }
+        ],
+        "Start": false
+      },
+      {
+        "ID": 5,
+        "Name": "z4",
+        "x": 270,
+        "y": 270,
+        "Final": false,
+        "Radius": 30,
+        "Transitions": [
+          {
+            "Source": 5,
+            "Target": 6,
+            "x": 0,
+            "y": 0,
+            "Labels": [
+              "0"
+            ]
+          },
+          {
+            "Source": 5,
+            "Target": 3,
+            "x": 0,
+            "y": 0,
+            "Labels": [
+              "1"
+            ]
+          }
+        ],
+        "Start": false
+      },
+      {
+        "ID": 6,
+        "Name": "z5",
+        "x": 430,
+        "y": 270,
+        "Final": false,
+        "Radius": 30,
+        "Transitions": [
+          {
+            "Source": 6,
+            "Target": 8,
+            "x": 0,
+            "y": 0,
+            "Labels": [
+              "1"
+            ]
+          },
+          {
+            "Source": 6,
+            "Target": 9,
+            "x": 0,
+            "y": 0,
+            "Labels": [
+              "0"
+            ]
+          }
+        ],
+        "Start": false
+      },
+      {
+        "ID": 8,
+        "Name": "z7",
+        "x": 560,
+        "y": 180,
+        "Final": true,
+        "Radius": 30,
+        "Transitions": [
+          {
+            "Source": 8,
+            "Target": 8,
+            "x": 70,
+            "y": -120,
+            "Labels": [
+              "0",
+              "1"
+            ]
+          }
+        ],
+        "Start": false
+      },
+      {
+        "ID": 9,
+        "Name": "TRAP",
+        "x": 630,
+        "y": 270,
+        "Final": false,
+        "Radius": 30,
+        "Transitions": [
+          {
+            "Source": 9,
+            "Target": 9,
+            "x": 50,
+            "y": -90,
+            "Labels": [
+              "0",
+              "1"
+            ]
+          }
+        ],
+        "Start": false
+      }
+    ],
+    "lastInputs": [
+      [
+        "1",
+        "1"
+      ],
+      [
+        "1",
+        "0",
+        "0",
+        "1"
+      ],
+      [
+        "1",
+        "1",
+        "1"
+      ],
+      [
+        "1",
+        "1",
+        "0"
+      ],
+      [
+        "1",
+        "0",
+        "1"
+      ],
+      [
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "1"
+      ],
+      [
+        "0",
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1"
+      ],
+      [
+        "0",
+        "0",
+        "0"
+      ]
+    ]
+  }
+}
