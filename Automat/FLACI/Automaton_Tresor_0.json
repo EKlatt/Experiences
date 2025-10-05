@@ -1,0 +1,71 @@
+﻿{
+  "name": "Tresor_0",
+  "description": "",
+  "type": "DEA",
+  "automaton": {
+    "acceptCache": [],
+    "simulationInput": [
+      "0",
+      "0",
+      "0"
+    ],
+    "Alphabet": [
+      "0",
+      "1"
+    ],
+    "StackAlphabet": [
+      "|"
+    ],
+    "States": [
+      {
+        "ID": 1,
+        "Name": "z0",
+        "x": 150,
+        "y": 150,
+        "Final": false,
+        "Radius": 30,
+        "Transitions": [
+          {
+            "Source": 1,
+            "Target": 4,
+            "x": 0,
+            "y": 0,
+            "Labels": [
+              "0",
+              "1"
+            ]
+          }
+        ],
+        "Start": true
+      },
+      {
+        "ID": 4,
+        "Name": "z3",
+        "x": 580,
+        "y": 150,
+        "Final": true,
+        "Radius": 30,
+        "Transitions": [
+          {
+            "Source": 4,
+            "Target": 4,
+            "x": 100,
+            "y": 0,
+            "Labels": [
+              "0",
+              "1"
+            ]
+          }
+        ],
+        "Start": false
+      }
+    ],
+    "lastInputs": [
+      [
+        "0",
+        "0",
+        "0"
+      ]
+    ]
+  }
+}
