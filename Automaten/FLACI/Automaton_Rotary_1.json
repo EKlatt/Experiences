@@ -1,0 +1,166 @@
+﻿{
+  "name": "Rotary_1",
+  "description": "",
+  "type": "MEALY",
+  "automaton": {
+    "acceptCache": [],
+    "simulationInput": [
+      "CLKfall",
+      "CLKfall",
+      "CLKrise",
+      "DTfall",
+      "DTrise"
+    ],
+    "Alphabet": [
+      "CLKfall",
+      "CLKrise",
+      "DTfall",
+      "DTrise"
+    ],
+    "StackAlphabet": [
+      "0",
+      "count++",
+      "count--"
+    ],
+    "States": [
+      {
+        "ID": 2,
+        "Name": "CW01",
+        "x": 580,
+        "y": 220,
+        "Final": false,
+        "Radius": 30,
+        "Transitions": [
+          {
+            "Source": 2,
+            "Target": 3,
+            "x": 30,
+            "y": 0,
+            "Labels": [
+              [
+                "DTfall",
+                "0"
+              ]
+            ]
+          },
+          {
+            "Source": 2,
+            "Target": 2,
+            "x": 100,
+            "y": -10,
+            "Labels": [
+              [
+                "CLKfall",
+                "0"
+              ],
+              [
+                "CLKrise",
+                "0"
+              ],
+              [
+                "DTrise",
+                "0"
+              ]
+            ]
+          }
+        ],
+        "Start": false
+      },
+      {
+        "ID": 1,
+        "Name": "ID11",
+        "x": 370,
+        "y": 130,
+        "Final": false,
+        "Radius": 30,
+        "Transitions": [
+          {
+            "Source": 1,
+            "Target": 2,
+            "x": 0,
+            "y": 20,
+            "Labels": [
+              [
+                "CLKfall",
+                "0"
+              ]
+            ]
+          },
+          {
+            "Source": 1,
+            "Target": 1,
+            "x": -100,
+            "y": -110,
+            "Labels": [
+              [
+                "CLKrise",
+                "0"
+              ],
+              [
+                "DTfall",
+                "0"
+              ],
+              [
+                "DTrise",
+                "0"
+              ]
+            ]
+          }
+        ],
+        "Start": true
+      },
+      {
+        "ID": 3,
+        "Name": "CW00",
+        "x": 400,
+        "y": 340,
+        "Final": false,
+        "Radius": 30,
+        "Transitions": [
+          {
+            "Source": 3,
+            "Target": 1,
+            "x": 80,
+            "y": 40,
+            "Labels": [
+              [
+                "DTrise",
+                "count++"
+              ]
+            ]
+          },
+          {
+            "Source": 3,
+            "Target": 3,
+            "x": -10,
+            "y": 90,
+            "Labels": [
+              [
+                "CLKfall",
+                "0"
+              ],
+              [
+                "CLKrise",
+                "0"
+              ],
+              [
+                "DTfall",
+                "0"
+              ]
+            ]
+          }
+        ],
+        "Start": false
+      }
+    ],
+    "lastInputs": [
+      [
+        "CLKfall",
+        "CLKfall",
+        "CLKrise",
+        "DTfall",
+        "DTrise"
+      ]
+    ]
+  }
+}
