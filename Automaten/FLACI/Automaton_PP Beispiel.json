@@ -1,0 +1,65 @@
+﻿{
+  "name": "PP Beispiel",
+  "description": "",
+  "type": "MEALY",
+  "automaton": {
+    "acceptCache": [],
+    "simulationInput": [],
+    "Alphabet": [
+      "D"
+    ],
+    "StackAlphabet": [
+      "leuchtet",
+      "dunkel"
+    ],
+    "States": [
+      {
+        "ID": 1,
+        "Name": "L aus",
+        "x": 150,
+        "y": 150,
+        "Final": false,
+        "Radius": 30,
+        "Transitions": [
+          {
+            "Source": 1,
+            "Target": 2,
+            "x": 50,
+            "y": 0,
+            "Labels": [
+              [
+                "D",
+                "leuchtet"
+              ]
+            ]
+          }
+        ],
+        "Start": true
+      },
+      {
+        "ID": 2,
+        "Name": "L an",
+        "x": 310,
+        "y": 150,
+        "Final": false,
+        "Radius": 30,
+        "Transitions": [
+          {
+            "Source": 2,
+            "Target": 1,
+            "x": 50,
+            "y": 0,
+            "Labels": [
+              [
+                "D",
+                "dunkel"
+              ]
+            ]
+          }
+        ],
+        "Start": false
+      }
+    ],
+    "lastInputs": []
+  }
+}
