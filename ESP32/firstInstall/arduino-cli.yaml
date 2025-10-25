@@ -1,8 +1,0 @@
-board_manager:
-    additional_urls: []
-directories:
-    builtin:
-        libraries: c:\Users\Public\arduino-2\sketch
-    data: c:\Users\Public\arduino-2\portable
-    user: c:\Users\Public\arduino-2\sketch
-locale: de
