@@ -10,7 +10,7 @@
 #define lcdRows     2
 LiquidCrystal_I2C lcd(0x27, lcdColumns, lcdRows);
 
-#define ldrPin 35  // ESP32 pin GPIO35 (ADC1-7) connected to LDR
+#define ADC1_7  35        // ESP32 pin GPIO35 (ADC1-7) connected to LDR
 
 void setup() {
   Serial.begin(115200);
@@ -24,8 +24,8 @@ void setup() {
 }
 
 void loop() {
-  // reads the input from analog pin A0 (value between 0 and 4095)
-  short analogValue = analogRead(ldrPin);
+  // reads the input from analog pin ADC1_7 (value between 0 and 4095)
+  short analogValue = analogRead(ADC1_7);
 
   // the analogRead() values for 12 bit resolution have a range between 0 to 4095
   // scale LDR-values to led-brightness: % value between 0 and 100
