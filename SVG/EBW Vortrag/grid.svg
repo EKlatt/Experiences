@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+    <path  
+      stroke="lightblue" stroke-width="2" 
+      d="M0,050 H 500 M0,100 H 500 M0,150 H 500 M0,200 H 500 
+       M0,250 H 500 M0,300 H 500 M0,350 H 500 M0,400 H 500 M0,450 H 500"/>
+     <path 
+      stroke="lightblue" stroke-width="2" 
+    d="M050,0 V 500 M100,0 V 500 M150,0 V 500 M200,0 V 500 
+       M250,0 V 500 M300,0 V 500 M350,0 V 500 M400,0 V 500 M450,0 V 500"/>
+</svg>
