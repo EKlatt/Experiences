@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480" width="100%" height="100%">
+  <defs>
+    <!-- Lineares Gefälle für die schiefe Ebene -->
+    <linearGradient id="rampGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8d6e63" />
+      <stop offset="100%" stop-color="#4e342e" />
+    </linearGradient>
+
+    <!-- Radialer Verlauf für die Kugel -->
+    <radialGradient id="ballGrad" cx="35%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#ffe082" />
+      <stop offset="40%" stop-color="#ffb300" />
+      <stop offset="100%" stop-color="#ff6f00" />
+    </radialGradient>
+
+    <!-- Pfeilspitze für Vektoren -->
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#00e676" />
+    </marker>
+  </defs>
+
+  <style>
+    .grid { stroke: #37474f; stroke-width: 1; stroke-dasharray: 4,4; }
+    .axis { stroke: #cfd8dc; stroke-width: 2; }
+    .text { font-family: system-ui, -apple-system, sans-serif; fill: #eceff1; font-size: 14px; }
+    .title { font-size: 18px; font-weight: bold; fill: #ffe082; }
+    .label { font-size: 12px; fill: #b0bec5; }
+    
+    /* Animation für die Bewegung der Kugel */
+    @keyframes roll {
+      0% {
+        transform: translate(0px, 0px);
+      }
+      100% {
+        transform: translate(520px, 200px);
+      }
+    }
+
+    /* Animation für das Anwachsen des Geschwindigkeitspfeils (v ~ t) */
+    @keyframes arrowGrow {
+      0% {
+        stroke-dashoffset: 120;
+      }
+      100% {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    .animated-ball {
+      animation: roll 4s cubic-bezier(0.33, 0, 0.67, 0.33) infinite;
+    }
+
+    .velocity-vector {
+      stroke: #00e676;
+      stroke-width: 4;
+      stroke-dasharray: 120;
+      animation: arrowGrow 4s cubic-bezier(0.33, 0, 0.67, 0.33) infinite;
+    }
+  </style>
+
+  <!-- Hintergrund -->
+  <rect width="900" height="480" fill="#1e272c" rx="8" />
+
+  <!-- Titel -->
+  <text x="30" y="40" class="title">Schiefe Ebene nach Galilei (Gleichmäßig beschleunigte Bewegung)</text>
+
+  <!-- Schiefe Ebene (Dreieck) -->
+  <polygon points="100,350 700,350 100,119.23" fill="url(#rampGrad)" stroke="#bcaaa4" stroke-width="2" />
+
+  <!-- Winkel-Areal alpha -->
+  <path d="M 640 350 A 60 60 0 0 0 647.5 330" fill="none" stroke="#ffe082" stroke-width="2" />
+  <text x="625" y="342" class="text" fill="#ffe082">α</text>
+
+  <!-- Zeitmarkierungen auf der Ebene (Proportional zu t²) -->
+  <!-- s0=0 (0s), s1=20 (1s), s2=80 (2s), s3=180 (3s), s4=320 (4s), s5=500 (5s) -->
+  <g stroke="#ffffff" stroke-width="2" opacity="0.6">
+    <!-- t = 0s -->
+    <line x1="120" y1="127" x2="112" y2="107" />
+    <text x="105" y="95" class="label">t=0s (s=0)</text>
+
+    <!-- t = 1s -->
+    <text x="135" y="110" class="label">t=1s (1x)</text>
+    <line x1="157" y1="141" x2="149" y2="121" />
+
+    <!-- t = 2s -->
+    <text x="200" y="135" class="label">t=2s (4x)</text>
+    <line x1="228" y1="168" x2="220" y2="148" />
+
+    <!-- t = 3s -->
+    <text x="300" y="175" class="label">t=3s (9x)</text>
+    <line x1="346" y1="214" x2="338" y2="194" />
+
+    <!-- t = 4s -->
+    <text x="440" y="228" class="label">t=4s (16x)</text>
+    <line x1="512" y1="278" x2="504" y2="258" />
+
+    <!-- t = 5s -->
+    <text x="610" y="295" class="label">t=5s (25x)</text>
+    <line x1="700" y1="350" x2="692" y2="330" />
+  </g>
+
+  <!-- Animierte Kugel inklusive Geschwindigkeitspfeil -->
+  <g class="animated-ball">
+    <!-- Offset-Transformation: Startpunkt der Kugel liegt auf der Ebene bei (120, 127) - Radius Senkrechte -->
+    <g transform="translate(120, 127)">
+      <!-- Kugel (Radius 18px, senkrecht zur Ebene versetzt) -->
+      <circle cx="-6.9" cy="-16.6" r="18" fill="url(#ballGrad)" />
+      
+      <!-- Geschwindigkeitspfeil (v) - gerichtet parallel zur Ebene (Winkel ~21.04 Grad) -->
+      <!-- Vektor wächst dynamisch durch CSS-Animation -->
+      <line x1="-6.9" y1="-16.6" x2="105" y2="26.3" class="velocity-vector" marker-end="url(#arrow)" />
+      
+      <!-- Beschriftung des Geschwindigkeitsvektors -->
+      <text x="10" y="-30" class="text" fill="#00e676" font-weight="bold">v(t)</text>
+    </g>
+  </g>
+
+  <!-- Infobox / Legende -->
+  <rect x="50" y="380" width="800" height="75" fill="#263238" rx="6" stroke="#455a64" />
+  <text x="70" y="405" class="text" fill="#ffe082" font-weight="bold">Physikalische Zusammenhänge:</text>
+  <text x="70" y="432" class="text">• Weg-Zeit-Gesetz: <tspan fill="#80deea">s(t) ~ t²</tspan> (Streckenverhältnis 1 : 4 : 9 : 16 : 25)</text>
+  <text x="480" y="432" class="text">• Geschwindigkeits-Zeit-Gesetz: <tspan fill="#00e676">v(t) = a · t</tspan> (grüner Pfeil)</text>
+</svg>
