@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="500" height="500">
+     <!-- My frame -->
+     <image href="frame.svg" width="500" height="500"/>
+     <!-- My grid -->
+     <image href="grid.svg" width="500" height="500"/>
+     <!-- Your code starts here -->
+     
+<g transform="translate(250,100)">
+     <!-- pivot -->
+     <circle r="4" fill="black"/>
+     <g>
+          <!-- pendulum rod -->
+        <line x1="0" y1="0" x2="300" y2="0"
+              stroke="black" stroke-width="3"/>
+        <!-- ball -->
+        <circle cx="300" cy="0" r="12" fill="red"/>
+        <!-- swing -->
+        <animateTransform
+            attributeName="transform"
+            type="rotate"
+            values="140;40;140"
+            dur="3s"
+            repeatCount="indefinite"/>
+     </g>
+</g>
+<text x="100" y="100">0°</text>
+<text x="350" y="100">180°</text>
+</svg>
